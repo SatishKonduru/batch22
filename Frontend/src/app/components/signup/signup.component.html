@@ -1,0 +1,52 @@
+<mat-toolbar color="my-primary">
+    <mat-toolbar-row>
+        <span style="color: #fff;">Register</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content>
+    <form [formGroup]="registerForm">
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label>Username: </mat-label>
+                <input matInput type="text" formControlName="username" required>
+                <mat-error *ngIf="registerForm.controls.username.touched && registerForm.controls.username.invalid">
+                   <span *ngIf="registerForm.controls.username.errors?.required">Username is Mandatory</span>
+                   <span *ngIf="registerForm.controls.username.errors?.pattern">Invalid Username</span>
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Password: </mat-label>
+                <input matInput type="password" formControlName="password" required>
+                <mat-error *ngIf="registerForm.controls.password.touched && registerForm.controls.password.invalid">
+                   <span *ngIf="registerForm.controls.password.errors?.required">Password is Mandatory</span>
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email: </mat-label>
+                <input matInput type="text" formControlName="email" required>
+                <mat-error *ngIf="registerForm.controls.email.touched && registerForm.controls.email.invalid">
+                   <span *ngIf="registerForm.controls.email.errors?.required">email is Mandatory</span>
+                   <span *ngIf="registerForm.controls.email.errors?.pattern">Invalid email</span>
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contact Number: </mat-label>
+                <input matInput type="text" formControlName="cnumber" required>
+                <mat-error *ngIf="registerForm.controls.cnumber.touched && registerForm.controls.cnumber.invalid">
+                   <span *ngIf="registerForm.controls.cnumber.errors?.required">Copntact Number is Mandatory</span>
+                   <span *ngIf="registerForm.controls.cnumber.errors?.pattern">Invalid Contact Number</span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions style="justify-content: center;">
+    <button mat-raised-button color="my-primary1" [disabled]="!(registerForm.valid && registerForm.dirty)" (click)="onRegister()">Register</button>
+    <button mat-raised-button color="dialog-close" mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

@@ -1,0 +1,18 @@
+.mat-my-primary{
+    background: var(--orange) !important;
+}
+.mat-my-primary1{
+    background: var(--orange) !important;
+    color: #fff !important
+}
+.mat-dialog-close{
+    background: var(--light-color) !important;
+}
+mat-label{
+    font-size: 16px;
+    color: var(--orange)
+}
+mat-form-field{
+    width: 100%;
+    padding: 5px;
+}

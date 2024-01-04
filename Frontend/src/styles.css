@@ -1,0 +1,30 @@
+:root{
+    --orange: #c25b02;
+    --black: #101010;
+    --light-color: #666;
+    --box-shadow: 0  0.2rem  0.5rem var(--orange);
+    --border: 0.2rem solid rgba(0,0,0,0.1);
+    --outline: 0.1rem sloid rgba(0,0,0,0.1);
+    --outline-hover: 0.2rem solid var(--black);
+}
+
+*{
+    font-family: 'poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none !important;
+}
+html{
+    font-size: 62.5%;;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+body{
+    background: #eee;
+}
+
+
