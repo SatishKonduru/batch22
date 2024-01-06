@@ -12,6 +12,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { SignupComponent } from './components/signup/signup.component';
 import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER, PB_DIRECTION } from 'ngx-ui-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
   text: 'Loading...',
@@ -44,9 +46,12 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
     AngularMaterialModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
