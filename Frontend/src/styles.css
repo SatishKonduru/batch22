@@ -27,4 +27,25 @@ body{
     background: #eee;
 }
 
+/* .error-snackbar{
+    background: red !important;
+    color: #fff !important
+}
 
+.success-snackbar{
+    background: green !important;
+    color:  #fff !important;
+} */
+
+.mat-mdc-snack-bar-container{
+    &.error-snackbar{
+        --mdc-snackbar-container-color: rgb(165, 19, 19) !important;
+        --mdc-snackbar-supporting-text-color: #fff !important;
+    }
+}
+.mat-mdc-snack-bar-container{
+    &.success-snackbar{
+        --mdc-snackbar-container-color: rgb(0,107,0) !important;
+        --mdc-snackbar-supporting-text-color: #fff !important;
+    }
+}

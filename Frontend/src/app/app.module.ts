@@ -14,6 +14,7 @@ import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER, PB_DIRECTION } from 'ngx
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SnackbarService } from './services/snackbar.service';
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
   text: 'Loading...',
@@ -50,7 +51,8 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
     HttpClientModule
   ],
   providers: [
-    UserService
+    UserService,
+    SnackbarService
   ],
   bootstrap: [AppComponent]
 })
