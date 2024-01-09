@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SnackbarService } from './services/snackbar.service';
+import { LoginComponent } from './components/login/login.component';
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
   text: 'Loading...',
@@ -38,7 +39,8 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
     SidenavComponent,
     HomeComponent,
     PageNotFoundComponent,
-    SignupComponent
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

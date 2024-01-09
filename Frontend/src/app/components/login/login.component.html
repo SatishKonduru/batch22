@@ -1,0 +1,41 @@
+<mat-toolbar color="my-primary">
+    <mat-toolbar-row>
+        <span style="color: #fff;">Login</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content>
+    <form [formGroup]="loginForm">
+        <div class="form-group">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email: </mat-label>
+                <input matInput type="text" formControlName="email" required>
+                <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+                   <span *ngIf="loginForm.controls.email.errors?.required">email is Mandatory</span>
+                   <span *ngIf="loginForm.controls.email.errors?.pattern">Invalid email</span>
+                </mat-error>
+            </mat-form-field>
+            
+           <mat-form-field appearance="outline">
+                <mat-label>Password: </mat-label>
+                <input matInput type="password" formControlName="password" required>
+                <mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+                   <span *ngIf="loginForm.controls.password.errors?.required">Password is Mandatory</span>
+                </mat-error>
+            </mat-form-field>
+
+
+          
+
+
+        </div>
+    </form>
+    <div class="forgot">
+        <a mat-flat-button color="link" (click)="forgotPassword()">Forgot Password</a>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions style="justify-content: center;">
+    <button mat-raised-button color="my-primary1" [disabled]="!(loginForm.valid && loginForm.dirty)" (click)="onLogin()">Login</button>
+    <button mat-raised-button color="dialog-close" mat-dialog-close>Cancel</button>
+</mat-dialog-actions> 
+

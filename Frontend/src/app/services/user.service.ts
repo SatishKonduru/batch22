@@ -17,6 +17,12 @@ export class UserService {
   })
   }
 
+  forgotPassword(data: any){
+    this._http.post(this._URL+'/user/forgotPassword', data, {
+      headers: new HttpHeaders().set('Content-Type','application/json')
+    })
+  }
+
 
 
 
