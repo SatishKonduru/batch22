@@ -2,7 +2,7 @@ const express = require('express')
 const connection = require('../connection')
 const router = express.Router()
 const nodeMailer = require('nodemailer')
-
+const jwt = require('jsonwebtoken')
 
 
 var transporter = nodeMailer.createTransport({
@@ -72,5 +72,43 @@ router.post('/forgotPassword',(req, res ) => {
         }
     })
 }) 
+
+router.post('/login', (req, res) => {
+    const user = req.body
+    console.log("User Email: ", user.email)
+    query = "select email, password, role, status from user where email=?"
+    connection.query(query, [user.email], (err, results)=>{
+        if(!err){
+            if(results.length <= 0 || results[0].password != user.password){
+                console.log("Results Length: ", results.length)
+                console.log("Given Password: ", user.password)
+                console.log("Original Password: ", results[0].password)
+               return res.status(401).json({message: "Incorrect UserEmail/Password"}) 
+            }
+            else if(results[0].status === 'false'){
+                return res.status(401).json({message: "Please wait for Admin Approval"})
+            }
+            else if(results[0].password == user.password){
+               const payLoad = {
+                email: results[0].email,
+                role: results[0].role
+               } 
+               const accessToken = jwt.sign(payLoad, process.env.SECRET_KEY,{
+                expiresIn: '2h'
+               })
+               return res.status(200).json({token: accessToken})
+            }
+            else{
+                return res.status(500).json(err)
+            }
+        }
+        else{
+            return res.status(500).json({message:"Something went Wrong!"})
+        }
+    } )
+
+})
+
+
 
 module.exports = router
