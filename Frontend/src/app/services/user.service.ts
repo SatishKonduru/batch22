@@ -29,6 +29,9 @@ export class UserService {
     })
   }
 
+  checkToken(){
+    return this._http.get(this._URL+'/user/checkToken')
+  }
   
 
 

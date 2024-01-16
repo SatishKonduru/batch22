@@ -18,10 +18,13 @@ const routes: Routes = [
     path: 'signup',
     component: SignupComponent,
   },
+  { path: 'dashboard', 
+    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule) },
+
   {
     path: '**',
     component: PageNotFoundComponent,
-  },
+  }
 ];
 
 @NgModule({
