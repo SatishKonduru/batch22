@@ -18,6 +18,9 @@ import { SnackbarService } from './services/snackbar.service';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { DashboardService } from './services/dashboard.service';
+import { AuthService } from './services/auth.service';
+import { RouteGuardService } from './services/route-guard.service';
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
   text: 'Loading...',
@@ -58,7 +61,10 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
   ],
   providers: [
     UserService,
-    SnackbarService
+    SnackbarService,
+    DashboardService,
+    AuthService,
+    RouteGuardService
   ],
   bootstrap: [AppComponent]
 })
