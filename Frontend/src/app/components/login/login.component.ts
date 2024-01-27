@@ -17,10 +17,10 @@ export class LoginComponent implements OnInit{
   loginForm : any = FormGroup
   responseMsg: any =''
   constructor(private _formBuilder: FormBuilder,
-    private _dialogRef : MatDialogRef<LoginComponent>, 
-    private _userDialog: MatDialog, 
+    private _dialogRef : MatDialogRef<LoginComponent>,
+    private _userDialog: MatDialog,
     private _userService: UserService,
-    private _ngxService: NgxUiLoaderService, 
+    private _ngxService: NgxUiLoaderService,
     private _router: Router,
     private _snackbar: SnackbarService){}
 
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit{
       this._ngxService.stop()
       this._dialogRef.close()
       localStorage.setItem('token', res.token)
-      this._router.navigate(['/rsk/dashboard'])
+      this._router.navigate(['/dashboard'])
     }, (err: any) => {
       this._ngxService.stop()
       this._dialogRef.close()

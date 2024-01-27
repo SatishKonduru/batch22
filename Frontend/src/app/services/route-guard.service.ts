@@ -1,5 +1,5 @@
 import { Injectable, Injector } from '@angular/core';
-import { ActivatedRouteSnapshot, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { AuthService } from './auth.service';
 import { SnackbarService } from './snackbar.service';
@@ -8,16 +8,17 @@ import { globalProperties } from '../shared/globalProperties';
 @Injectable({
   providedIn: 'root'
 })
-export class RouteGuardService {
+export class RouteGuardService implements CanActivate{
   public auth: any
   constructor(private _router: Router,
      private _injector: Injector,
-     private _snackbar: SnackbarService) { 
+     private _snackbar: SnackbarService) {
     this.auth = this._injector.get(AuthService)
   }
   canActivate(route: ActivatedRouteSnapshot){
     let expectedRoleArray = route.data.expectedRole
     const token: any = localStorage.getItem('token')
+    console.log("Roles and token: ", expectedRoleArray, token)
     var tokenPayload: any;
     try{
       tokenPayload = jwtDecode(token)
@@ -33,11 +34,15 @@ export class RouteGuardService {
       }
     }
     if(tokenPayload.role=='user' || tokenPayload.role=='admin'){
-      if(this.auth.isAuthenticated() && checkRole){return true}
+      if(this.auth.isAuthenticated() && checkRole){
+        this._router.navigate(['/dashboard'])
+        return true
+      }
       else{
+        console.log("ROLE: ",tokenPayload.role)
         this._snackbar.openSnackbar(globalProperties.unauthorized, globalProperties.error)
       }
-      this._router.navigate(['/rsk/dashboard'])
+
     }
     else{
       this._router.navigate(['/home'])

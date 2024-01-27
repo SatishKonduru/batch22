@@ -19,15 +19,15 @@ const routes: Routes = [
     path: 'signup',
     component: SignupComponent,
   },
-  { 
-    path: 'dashboard', 
-    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule), 
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
     canActivate: [RouteGuardService],
     data: {
       expectedRole: ['admin','user']
     }
   },
-    
+
   {
     path: '**',
     component: PageNotFoundComponent,

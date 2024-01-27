@@ -13,13 +13,13 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit{
 
 constructor(private _userDialog: MatDialog,
-   private _userService: UserService, 
+   private _userService: UserService,
   private _router: Router){}
 ngOnInit(): void {
  if(localStorage.getItem('token') != null){
   this._userService.checkToken()
   .subscribe((res: any) => {
-    this._router.navigate(['/rsk/dashboard'])
+    this._router.navigate(['/dashboard'])
   }, (err: any)=> {
     console.log(err)
 
@@ -31,7 +31,7 @@ ngOnInit(): void {
 }
   userSignup(){
     const dialogConfig = new MatDialogConfig()
-    
+
     dialogConfig.width = '70rem'
     dialogConfig.position ={
       right: '10px',
