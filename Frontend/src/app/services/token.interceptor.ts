@@ -22,7 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
         Authorization: `Bearer ${token}`
       }
      })
-    }
+
     return next.handle(tokenizedRequest).pipe(catchError((err) =>{
       if(err instanceof HttpErrorResponse){
         console.log(err)
@@ -36,7 +36,10 @@ export class TokenInterceptor implements HttpInterceptor {
       }
       return throwError(err)
     }))
-
+  }
+  else{
+    return next.handle(request)
+  }
   }
 
 
