@@ -4,6 +4,8 @@ const router = express.Router()
 var auth = require('../services/authentication')
 var checkRole = require('../services/checkRole')
 
+
+
 router.post('/add',auth.authenticateToken,checkRole.checkRole,(req, res) => {
     let category = req.body
     query = "insert into category (name) values (?)"

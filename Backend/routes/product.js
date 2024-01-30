@@ -31,4 +31,30 @@ router.get('/get',auth.authenticateToken, (req, res, next)=>{
 })
 
 
+router.get('/getByCategory/:id',auth.authenticateToken ,(req, res) => {
+    const id = req.params.id
+    var query = "select id, name from product where categoryId= ? and status='true'"
+    connection.query(query,[id] , (err, results) => {
+        if(!err){
+            return res.status(200).json(results)
+        }
+        else{
+            return res.status(500).json(err)
+        }
+    })
+}) 
+
+router.get('/getById/:id', auth.authenticateToken,(req, res)=>{
+    const id = req.params.id
+    var query = "select id, name, description, price from product where id=?"
+    connection.query(query,[id], (err, results)=>{
+        if(!err){
+            return res.status(200).json(results[0])
+        }
+        else{
+            return res.status(500).json(err)
+        }
+    } )
+})
+
 module.exports = router
