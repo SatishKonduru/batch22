@@ -28,20 +28,22 @@ export class RouteGuardService implements CanActivate{
       this._router.navigate(['/'])
     }
     let checkRole = false
-    for(let i=0; i < expectedRoleArray.legth ; i++){
+    for(let i=0; i < expectedRoleArray.length ; i++){
       if(expectedRoleArray[i] == tokenPayload.role){
         checkRole = true
       }
     }
     if(tokenPayload.role=='user' || tokenPayload.role=='admin'){
+      console.log("ROle:::::::& CheckRole: ", tokenPayload.role, checkRole )
       if(this.auth.isAuthenticated() && checkRole){
-        this._router.navigate(['/dashboard'])
+        // this._router.navigate(['/dashboard'])
         return true
       }
-      else{
-        console.log("ROLE: ",tokenPayload.role)
-        this._snackbar.openSnackbar(globalProperties.unauthorized, globalProperties.error)
-      }
+      // else{
+      //   console.log("ROLE: ",tokenPayload.role)
+      //   this._snackbar.openSnackbar(globalProperties.unauthorized, globalProperties.error)
+      //   return false
+      // }
 
     }
     else{

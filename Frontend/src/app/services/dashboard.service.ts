@@ -10,7 +10,7 @@ private _URL = environment.apiURL;
   constructor(private _http: HttpClient) { }
 
   getDetails(){
-  return  this._http.get(this._URL+'dashboard/details')
+  return  this._http.get(this._URL+'/dashboard/details')
   }
 
 

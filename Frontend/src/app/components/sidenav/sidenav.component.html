@@ -1,6 +1,16 @@
 <mat-drawer-container class="rsk-container" autosize>
-    <mat-drawer class="rsk-sidenav" #drawer mode="side">
-        <h3 style="color:#fff">Sidenav items are here....</h3>
+    <mat-drawer class="rsk-sidenav" #drawer mode="side" opened="true">
+        <!-- <h3 style="color:#fff">Sidenav items are here....</h3> -->
+        <mat-nav-list *ngFor="let item of menuItems.getMenuItems()">
+          <mat-list-item [routerLink]="item.state"
+            routerLinkActive="selected"
+            group = {{item.state}}
+            class="listItem">
+            <mat-icon style="color:#fff" matListItemIcon>{{item.icon}}</mat-icon>
+            <span style="color:#fff" matListItemTitle>{{" "+ item.name}}</span>
+          </mat-list-item>
+        </mat-nav-list>
+
     </mat-drawer>
     <mat-drawer-content>
         <div class="rsk-sidenav-content">

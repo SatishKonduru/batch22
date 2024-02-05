@@ -22,6 +22,7 @@ import { DashboardService } from './services/dashboard.service';
 import { AuthService } from './services/auth.service';
 import { RouteGuardService } from './services/route-guard.service';
 import { TokenInterceptor } from './services/token.interceptor';
+import { MenuItems } from './shared/menu-items';
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
   text: 'Loading...',
@@ -70,7 +71,8 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    MenuItems
   ],
   bootstrap: [AppComponent]
 })

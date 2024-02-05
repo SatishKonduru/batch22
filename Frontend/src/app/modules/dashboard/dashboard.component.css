@@ -1,0 +1,7 @@
+mat-card-header{
+  margin-top: 1rem;;
+  background-color: var(--orange);
+  padding: 0;
+  padding-left: 1rem;
+  color: #fff;
+}

@@ -18,4 +18,22 @@
 .pageContent{
     margin-top: 1rem;
     font-size: 16px;
+    width: 100%;
+}
+
+.selected{
+  background-image: linear-gradient(to right, var(--orange), #000);
+  border-radius: 0 40px 40px 0 0;
+}
+.listItem{
+  width: 95%;
+  padding-right: 0;
+  margin-bottom: 10px;
+  border-radius: 10px !important;
+  color: #fff;
+}
+.listItem:hover{
+  transform: scale(1.1, 1);
+  border-radius: 0 40px 40px 0  !important;
+  background-image: linear-gradient(to right, var(--orange), #000);
 }

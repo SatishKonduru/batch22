@@ -32,7 +32,12 @@ export class UserService {
   checkToken(){
     return this._http.get(this._URL+'/user/checkToken')
   }
-  
+
+  changePassword(data: any){
+    return this._http.post(this._URL+'/user/changePassword', data, {
+      headers: new HttpHeaders().set('Content-Type','application/json')
+    })
+  }
 
 
 }
