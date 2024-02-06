@@ -84,7 +84,7 @@ router.post('/login', (req, res) => {
             if(results.length <= 0 || results[0].password != user.password){
                 console.log("Results Length: ", results.length)
                 console.log("Given Password: ", user.password)
-                console.log("Original Password: ", results[0].password)
+                // console.log("Original Password: ", results[0].password)
                return res.status(401).json({message: "Incorrect UserEmail/Password"}) 
             }
             else if(results[0].status === 'false'){
@@ -114,6 +114,41 @@ router.post('/login', (req, res) => {
 router.get('/checkToken', (req, res) => {
     return res.status(200).json({message: 'true'})
 })
+
+router.post('/changePassword', (req, res) => {
+    const user = req.body
+    var query = "select * from user where email =? and password=?"
+    connection.query(query, [user.email, user.oldPassword], (err, results)=>{
+        if(!err){
+            if(results.length <= 0){
+                return res.status(400).json({message: 'Incorrect Old Password'})
+            }
+            else if(results[0].password == user.oldPassword){
+                query= "update user set password=? where email =?"
+                connection.query(query, [user.newPassword, user.email], (err, results) => {
+                    if(!err){
+                        return res.status(200).json({message: 'Password Updated Successfully'})
+                    }
+                    else{
+                        return res.status(500).json(err)
+                    }
+                })
+            }
+            else{
+                return res.status(400).json({message: 'Something Went wrong. Please try later'})
+            }
+        }
+        else{
+            return res.status(500).json(err)
+        }
+    })
+})
+
+
+
+
+
+
 
 
 module.exports = router

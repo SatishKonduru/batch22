@@ -23,6 +23,7 @@ import { AuthService } from './services/auth.service';
 import { RouteGuardService } from './services/route-guard.service';
 import { TokenInterceptor } from './services/token.interceptor';
 import { MenuItems } from './shared/menu-items';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
   text: 'Loading...',
@@ -48,7 +49,8 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
     PageNotFoundComponent,
     SignupComponent,
     LoginComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

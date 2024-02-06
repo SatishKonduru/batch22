@@ -7,6 +7,7 @@ import { UserService } from 'src/app/services/user.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Router } from '@angular/router';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { ChangePasswordComponent } from '../change-password/change-password.component';
 
 @Component({
   selector: 'app-login',
@@ -68,4 +69,24 @@ export class LoginComponent implements OnInit{
     dialogConfig.autoFocus = true
     this._userDialog.open(ForgotPasswordComponent, dialogConfig)
   }
+
+  changePassword(){
+    this._dialogRef.close()
+    const dialogConfig = new MatDialogConfig()
+    dialogConfig.width = '70rem'
+    dialogConfig.position = { right: '10px', top: '5px'}
+    dialogConfig.disableClose = true
+    this._userDialog.open(ChangePasswordComponent, dialogConfig)
+  }
+
+  check(){
+    const token = localStorage.getItem('token')
+    if(token){
+      return true
+    }
+    else{
+      return false
+    }
+  }
+
 }

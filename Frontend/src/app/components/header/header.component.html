@@ -15,13 +15,16 @@
 </header>
 
 <mat-menu #menu="matMenu">
-    <button class="menu-item" mat-menu-item (click)="userSignup()">
+    <button class="menu-item" mat-menu-item (click)="userSignup()" *ngIf="!check()">
         <mat-icon>account_circle</mat-icon>
         <span class="size">Register</span>
     </button>
-    <button class="menu-item" mat-menu-item (click)="userLogin()">
+    <button class="menu-item" mat-menu-item (click)="userLogin()" *ngIf="!check()">
         <mat-icon>exit_to_app</mat-icon>
         <span class="size">Login</span>
+    </button>
+    <button class="menu-item" mat-menu-item (click)="changePassword()" *ngIf="check()">
+      Change Password
     </button>
     <button class="menu-item" mat-menu-item>
         <mat-icon>power_settings_new</mat-icon>
