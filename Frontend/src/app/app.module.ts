@@ -24,6 +24,8 @@ import { RouteGuardService } from './services/route-guard.service';
 import { TokenInterceptor } from './services/token.interceptor';
 import { MenuItems } from './shared/menu-items';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { ManageCategoryComponent } from './components/manage-category/manage-category.component';
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
   text: 'Loading...',
@@ -50,7 +52,9 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
     SignupComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    LogoutComponent,
+    ManageCategoryComponent
   ],
   imports: [
     BrowserModule,

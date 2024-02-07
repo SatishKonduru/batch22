@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { RouteGuardService } from './services/route-guard.service';
+import { ManageCategoryComponent } from './components/manage-category/manage-category.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,14 @@ const routes: Routes = [
     canActivate: [RouteGuardService],
     data: {
       expectedRole: ['admin','user']
+    }
+  },
+  {
+    path: 'category',
+    component: ManageCategoryComponent,
+    canActivate: [RouteGuardService],
+    data: {
+      expectedRole: ['admin']
     }
   },
 
