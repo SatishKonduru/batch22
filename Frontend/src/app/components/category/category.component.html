@@ -1,1 +1,23 @@
-<p>category works!</p>
+<mat-toolbar color="my-primary">
+  <mat-toolbar-row>
+    <span class="title-center">{{dialogData.action}}</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content>
+    <form [formGroup]="categoryForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Name: </mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="categoryForm.controls.name.touched && categoryForm.controls.name.invalid">
+          <span *ngIf="categoryForm.controls.name.errors?.required">
+            This Field is Mandatory
+          </span>
+        </mat-error>
+      </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions style="justify-content: center; margin-top: -30px;">
+  <button mat-raised-button color="my-primary" [disabled]="!(categoryForm.valid && categoryForm.dirty)"
+  (click)="handleSubmit()">{{action}}</button>
+  <button mat-raised-button color="dialog-close" style="margin-left: 10px;" mat-dialog-close>Close</button>
+</mat-dialog-actions>

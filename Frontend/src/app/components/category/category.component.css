@@ -1,0 +1,20 @@
+.mat-my-primary{
+  background-color: var(--orange);
+  color: #fff;
+}
+.title-center{
+  color:#fff;
+}
+.mat-dialog-close{
+  background-color: var(--black);
+  color: #fff;
+}
+
+mat-label{
+  font-size: 16px;
+  color: var(--orange)
+}
+mat-form-field{
+  width: 100%;
+  padding: 5px
+}

@@ -66,9 +66,9 @@ this._router.events.subscribe( () => {
   dialogRef.close()
 })
 
-// dialogRef.componentInstance.onAddCategory.subscribe((res) => {
-//   this.tableData()
-// })
+dialogRef.componentInstance.onAddCategory.subscribe((res) => {
+  this.tableData()
+})
 
 }
 applyFilter(filterValue: string){
@@ -79,6 +79,28 @@ onSearchClear(){
   this.searchKey = ''
   this.applyFilter('')
 }
+editCategory(item: any){
+  const dialogConfig = new MatDialogConfig()
+  dialogConfig.data = {
+    action: 'Edit',
+    data: item
+  }
 
+  dialogConfig.width = '300px'
+  dialogConfig.disableClose = true
+  dialogConfig.position = {
+    top: '100px',
+    left: '48rem'
+  }
+  const dialogRef  = this._userDialog.open(CategoryComponent, dialogConfig)
+  this._router.events.subscribe(() => {
+    dialogRef.close()
+  })
+  dialogRef.componentInstance.onEditCategory.subscribe(() => {
+    this.tableData()
+  })
+
+
+}
 
 }
