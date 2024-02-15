@@ -27,6 +27,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { LogoutComponent } from './components/logout/logout.component';
 import { ManageCategoryComponent } from './components/manage-category/manage-category.component';
 import { CategoryComponent } from './components/category/category.component';
+import { ManageProductComponent } from './components/manage-product/manage-product.component';
+import { ProductComponent } from './components/product/product.component';
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
   text: 'Loading...',
@@ -56,7 +58,9 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
     ChangePasswordComponent,
     LogoutComponent,
     ManageCategoryComponent,
-    CategoryComponent
+    CategoryComponent,
+    ManageProductComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
