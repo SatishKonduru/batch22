@@ -9,18 +9,20 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 import { globalProperties } from 'src/app/shared/globalProperties';
 import { ProductComponent } from '../product/product.component';
 import { DialogConfig } from '@angular/cdk/dialog';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-manage-product',
   templateUrl: './manage-product.component.html',
-  styleUrls: ['./manage-product.component.css']
+  styleUrls: ['./manage-product.component.css'],
 })
 export class ManageProductComponent implements OnInit{
 
   displayedColumns : string[] = ['name','categoryName', 'description', 'price','edit'];
   dataSource: any;
   responseMsg:  any = ''
-  searchKey :  string = ''
+  searchKey : string = ''
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     private _productService: ProductService,
@@ -66,9 +68,9 @@ addProduct(){
     dialogRef.close()
   })
 
-  // dialogRef.componentInstance.onAddProduct.subscribe(()=> {
-  //   this.tableData()
-  // })
+  dialogRef.componentInstance.onAddProduct.subscribe(()=> {
+    this.tableData()
+  })
 }
 
 editProduct(item: any) {
@@ -86,9 +88,9 @@ editProduct(item: any) {
   this._router.events.subscribe(()=>{
     dialogRef.close()
   })
- // dialogRef.componentInstance.onEditProduct.subscribe(()=> {
-  //   this.tableData()
-  // })
+ dialogRef.componentInstance.onEditProduct.subscribe(()=> {
+    this.tableData()
+  })
 }
 
 onSearchClear(){
