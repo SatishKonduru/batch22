@@ -1,0 +1,11 @@
+.mat-my-primary{
+  background-color: var(--orange) !important;
+  color: #fff !important;
+}
+h5{
+  font-size: 18px;
+}
+.mat-dialog-close{
+  background-color: var(--black);
+  color: #fff;
+}

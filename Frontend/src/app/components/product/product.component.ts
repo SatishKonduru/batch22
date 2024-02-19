@@ -48,6 +48,7 @@ ngOnInit(): void {
   this._categoryService.getCategories()
   .subscribe((res: any) => {
     this.categories = res
+    console.log("Existing Categories: ", this.categories)
   }, (err: any) => {
     if(err.error?.message){
       this.responseMsg = err.error?.message

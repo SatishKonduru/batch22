@@ -10,6 +10,7 @@ export class ProductService {
   constructor(private _http: HttpClient) { }
 
   add(data: any){
+    console.log("Data: ", data)
   return   this._http.post(this._URL+'/product/add', data, {
       headers: new HttpHeaders().set('Content-Type','application/json')
     })

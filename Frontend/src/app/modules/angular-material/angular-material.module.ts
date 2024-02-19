@@ -14,6 +14,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -32,7 +33,8 @@ const materialComponents = [
   MatTableModule,
   MatTooltipModule,
   MatPaginatorModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatSelectModule
 ]
 @NgModule({
   imports: [materialComponents],
