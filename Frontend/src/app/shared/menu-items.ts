@@ -25,6 +25,12 @@ const MENU_ITEMS = [
     name: 'Product',
     icon: 'inventory_2',
     role: 'admin'
+  },
+  {
+    state: 'order',
+    name: 'Order',
+    icon: 'list_alt',
+    role: ''
   }
 ]
 @Injectable()

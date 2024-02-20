@@ -6,6 +6,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { RouteGuardService } from './services/route-guard.service';
 import { ManageCategoryComponent } from './components/manage-category/manage-category.component';
 import { ManageProductComponent } from './components/manage-product/manage-product.component';
+import { ManageOrderComponent } from './components/manage-order/manage-order.component';
 
 const routes: Routes = [
   {
@@ -45,7 +46,14 @@ const routes: Routes = [
       expectedRole: ['admin']
     }
   },
-
+  {
+    path: 'order',
+    component: ManageOrderComponent,
+    canActivate: [RouteGuardService],
+    data: {
+      expectedRole: ['user','admin']
+    }
+  },
   {
     path: '**',
     component: PageNotFoundComponent,

@@ -30,6 +30,8 @@ import { CategoryComponent } from './components/category/category.component';
 import { ManageProductComponent } from './components/manage-product/manage-product.component';
 import { ProductComponent } from './components/product/product.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { BillService } from './services/bill.service';
+import { ManageOrderComponent } from './components/manage-order/manage-order.component';
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
   text: 'Loading...',
@@ -62,7 +64,8 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
     CategoryComponent,
     ManageProductComponent,
     ProductComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    ManageOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +89,8 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
       useClass: TokenInterceptor,
       multi: true
     },
-    MenuItems
+    MenuItems,
+    BillService
   ],
   bootstrap: [AppComponent]
 })

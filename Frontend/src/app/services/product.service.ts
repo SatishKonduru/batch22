@@ -38,6 +38,18 @@ export class ProductService {
     })
   }
 
+ getProductByCategory(id: any){
+  return this._http.get(this._URL+'/product/getByCategory/'+id, {
+    headers: new HttpHeaders().set('Content-Type','application/json')
+  })
+ }
+
+ getById(id: any){
+  return this._http.get(this._URL+'/product/getById/'+id, {
+    headers: new HttpHeaders().set('Content-Type','application/json')
+  })
+ }
+
 
 
 }

@@ -4,6 +4,9 @@ public static genericError : string='Something went Wrong! Please try again late
 
 public static unauthorized : string = "You are not authorized person to access this page!"
 
+public static productExistsError: string = 'Product Already Exist'
+
+public static productAdded: string = 'Product Added Successfully'
 
 
 //Regular Expression (Regex)
@@ -30,7 +33,7 @@ public static error: string = 'error'
 // | => or operator
 // \ => Escape Special Character
 // () => Character Sequence
-// {} => Range Qualifiers Ex: a{2,3}= 'aa' or 'aaa' 
+// {} => Range Qualifiers Ex: a{2,3}= 'aa' or 'aaa'
 
 
 
