@@ -17,7 +17,7 @@ export class BillService {
   }
 
   getPdf(data: any): Observable<Blob>{
-    return this._http.post(this._URL+'bill/getPdf', data, {responseType: 'blob'})
+    return this._http.post(this._URL+'/bill/getPdf', data, {responseType: 'blob'})
   }
 
 
