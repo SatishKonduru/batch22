@@ -159,9 +159,9 @@ validateSubmit(){
 
 add(){
   var formData = this.manageOrderForm.value
-  var productName = this.dataSource.find((e: {id: number}) => {
+  var productName = this.dataSource.find((e: {id: number;}) => 
     e.id == formData.product.id
-  })
+  )
 
   if(productName === undefined){
     this.totalAmount = this.totalAmount + formData.total
