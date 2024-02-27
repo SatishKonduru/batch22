@@ -1,0 +1,8 @@
+.mat-my-primary{
+    background-color: var(--orange) !important;
+    color: #fff !important;
+  }
+  th{
+    color:var(--orange) !important;
+  }
+  

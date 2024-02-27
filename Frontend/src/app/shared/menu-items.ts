@@ -31,6 +31,12 @@ const MENU_ITEMS = [
     name: 'Order',
     icon: 'list_alt',
     role: ''
+  },
+  {
+    state: 'bill',
+    name: 'View Bill',
+    icon: 'import_contacts',
+    role: ''
   }
 ]
 @Injectable()
