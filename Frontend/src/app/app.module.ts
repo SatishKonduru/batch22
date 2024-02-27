@@ -34,6 +34,7 @@ import { BillService } from './services/bill.service';
 import { ManageOrderComponent } from './components/manage-order/manage-order.component';
 import { ViewBillComponent } from './components/view-bill/view-bill.component';
 import { ViewBillProductsComponent } from './components/view-bill-products/view-bill-products.component';
+import { ManageUserComponent } from './components/manage-user/manage-user.component';
 
 const ngxUiLoaderConfig : NgxUiLoaderConfig = {
   text: 'Loading...',
@@ -69,7 +70,8 @@ const ngxUiLoaderConfig : NgxUiLoaderConfig = {
     ConfirmationComponent,
     ManageOrderComponent,
     ViewBillComponent,
-    ViewBillProductsComponent
+    ViewBillProductsComponent,
+    ManageUserComponent
   ],
   imports: [
     BrowserModule,

@@ -40,4 +40,15 @@ export class UserService {
   }
 
 
+  getUsers(){
+    return this._http.get(this._URL+'/user/get')
+  }
+
+  update(data: any){
+    return this._http.patch(this._URL+'/user/update', data, {
+      headers: new HttpHeaders().set('Content-Type','application/json')
+    })
+  }
+
+
 }

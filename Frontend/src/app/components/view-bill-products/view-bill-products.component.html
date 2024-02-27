@@ -1,1 +1,68 @@
-<p>view-bill-products works!</p>
+<mat-card style="background-color: var(--orange); color: #fff"> 
+    <mat-card-content style="height: 55px;" align="center">
+        <mat-icon type="button" class="float-end" style="transform: translate(10px, -13px);"
+        (click)="onClose()">
+        close
+        </mat-icon>
+    </mat-card-content>
+</mat-card>
+  <br>
+<div class="title">
+    <mat-card style="box-shadow: var(--box-shadow); width: 90%" align="center center">
+        <mat-card-content>
+            <table style="width: 100%; font-size: 18px;">
+                <tr>
+                    <td><b>Name: &nbsp;</b>{{" "+data.name}}</td>
+                    <td><b>Email: &nbsp;</b>{{" "+data.email}}</td>
+                </tr>
+                <tr>
+                    <td><b>Contact Number: &nbsp;</b>{{" "+data.contactNumber}}</td>
+                    <td><b>Payment Method: &nbsp;</b>{{" "+data.paymentMethod}}</td>
+                </tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+</div>  
+<br>
+<div class="orderDetials">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z10" width="80%">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element">
+                {{element.name}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef>Category</th>
+            <td mat-cell *matCellDef="let element">
+                {{element.category}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef>Price</th>
+            <td mat-cell *matCellDef="let element">
+                {{element.price}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef>Quantity</th>
+            <td mat-cell *matCellDef="let element">
+                {{element.quantity}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="total">
+            <th mat-header-cell *matHeaderCellDef>Total</th>
+            <td mat-cell *matCellDef="let element">
+                {{element.total}}
+            </td>
+        </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="dispalyedColumns; sticky: true"></tr>  
+    <tr mat-row *matRowDef="let row;; columns: dispalyedColumns"></tr>  
+    </table>
+</div>

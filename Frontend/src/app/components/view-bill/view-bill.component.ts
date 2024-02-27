@@ -9,6 +9,7 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 import { globalProperties } from 'src/app/shared/globalProperties';
 import { ViewBillProductsComponent } from '../view-bill-products/view-bill-products.component';
 import { saveAs } from 'file-saver';
+import { ConfirmationComponent } from '../confirmation/confirmation.component';
 
 @Component({
   selector: 'app-view-bill',
@@ -95,6 +96,41 @@ downloadBill(item: any){
     saveAs(res, item.uuid+'.pdf')
     this._ngxService.stop()
   } )
+}
+
+deleteBill(item: any){
+  const dialogConfig = new MatDialogConfig()
+  dialogConfig.data = {
+    message: 'Delete '+ item.name + ' bill?'
+  }
+  const dialogRef =  this._userDialog.open(ConfirmationComponent, dialogConfig)
+  dialogRef.componentInstance.onEmitStatusChange.subscribe((res: any) =>{
+    this._ngxService.start()
+    this.deleteProduct(item.id)
+    dialogRef.close()
+  })
+
+
+}
+
+deleteProduct(id: any){
+  this._billService.delete(id)
+  .subscribe((res: any) => {
+    this._ngxService.stop()
+    this.tableData()
+    this.responseMsg = res?.message
+    this._snackbar.openSnackbar(this.responseMsg,'success')
+  }, (err: any) => {
+    this._ngxService.stop()
+    if(err.error?.message){
+      this.responseMsg = err.error?.message
+
+    }
+    else{
+      this.responseMsg= globalProperties.genericError
+    }
+    this._snackbar.openSnackbar(this.responseMsg, globalProperties.error)
+  })
 }
 
 

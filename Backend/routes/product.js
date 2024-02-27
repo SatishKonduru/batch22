@@ -57,7 +57,7 @@ router.get('/getById/:id', auth.authenticateToken,(req, res)=>{
     } )
 })
 
-router.patch('/update',auth.authenticateToken,checkRole.checkRole ,(req, res)=>{
+router.patch('/update',auth.authenticateToken, checkRole.checkRole ,(req, res)=>{
     let product = req.body
     var query = "update product set name=?, categoryId=?, description=?, price=? where id=?"
     connection.query(query,[product.name, product.categoryId, product.description, product.price, product.id], (err, results)=>{

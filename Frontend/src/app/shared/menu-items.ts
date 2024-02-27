@@ -37,6 +37,12 @@ const MENU_ITEMS = [
     name: 'View Bill',
     icon: 'import_contacts',
     role: ''
+  },
+  {
+    state: 'user',
+    name: 'Users',
+    icon: 'people',
+    role: 'admin'
   }
 ]
 @Injectable()
